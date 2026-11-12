@@ -72,13 +72,20 @@ func main() {
 }
 
 func get_available_backend_connection() {
-    
+
 }
 
 func handle_client_connection(client_conn net.Conn) {
     defer client_conn.Close()
 
     buf := make([]byte, 4096)
+
+    backend_conn, err: = get_available_backend_connection()
+    if err != nil {
+        log.Println("Failed to fetch an available backed") // TODO: ideally this should be put in some sort of a holding queue.. like let the connection write to a random buffer.. however tradeoff is that the client assumes that the data is okay to go and may mislead the user (unless the connection status is separate from not being able to write through a passthrough.. so that means that the load balancer itself needs to have some sort of a ticking time bomb attached to each incoming client request in case backends fail)
+    }
+
+    go handleBackendResponse(backend_conn, conn, id)
 
     for {
         n, err: = client_conn.Read(buf)
