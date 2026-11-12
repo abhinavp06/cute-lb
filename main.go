@@ -65,10 +65,30 @@ func main() {
             continue
         }
 
+        backend_conn, err := get_available_backend_connection()
+
         go handle_client_connection(client_connection)
 	}
 }
 
-func handle_client_connection(client_connection net.Conn) {
+func get_available_backend_connection() {
     
+}
+
+func handle_client_connection(client_conn net.Conn) {
+    defer client_conn.Close()
+
+    buf := make([]byte, 4096)
+
+    for {
+        n, err: = client_conn.Read(buf)
+        if err != nil {
+            log.Println("error while reading from client connection: ", err)
+        }
+
+        if _, err := backend_conn.Write(buf[:n]); err != nil {
+			log.Printf("[%s] client→backend: write => %v", id, err)
+			return
+		}
+    }
 }
