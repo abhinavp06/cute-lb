@@ -47,8 +47,28 @@ STILL OWED FROM LEVEL 1
 
 package main
 
-import "net"
+import (
+	"log"
+	"net"
+)
 
 func main() {
-    port_listener, err := net.Listen("tcp", "127.0.0.01:8080")
+	port_listener, err := net.Listen("tcp", "127.0.0.1:8080")
+	if err != nil {
+		log.Fatal("Failed to create listener on 127.0.0.1:8080")
+	}
+
+	for {
+		client_connection, err := port_listener.Accept()
+        if err != nil {
+            log.Println("failed to accept connection from client", err)
+            continue
+        }
+
+        go handle_client_connection(client_connection)
+	}
+}
+
+func handle_client_connection(client_connection net.Conn) {
+    
 }
