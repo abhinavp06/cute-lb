@@ -1,0 +1,6 @@
+# Binary produced by `go build` in the repo root (module name: cute-lb)
+/cute-lb
+
+# Test binaries and coverage output from `go test`
+*.test
+*.out

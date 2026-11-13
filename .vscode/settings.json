@@ -1,0 +1,41 @@
+{
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4,
+    "editor.semanticHighlighting.enabled": true
+  },
+  "gopls": {
+    "formatting.gofumpt": false,
+    "staticcheck": true,
+    "analyses": {
+      "unusedparams": true,
+      "shadow": true,
+      "nilness": true,
+      "unusedwrite": true,
+      "useany": true
+    },
+    "hints": {
+      "assignVariableTypes": false,
+      "compositeLiteralFields": true,
+      "constantValues": true,
+      "parameterNames": true,
+      "rangeVariableTypes": true
+    }
+  },
+  "go.toolsManagement.autoUpdate": false,
+  "go.diagnostic.vulncheck": "Off",
+  "go.lintOnSave": "package",
+  "go.vetOnSave": "package",
+  "problems.decorations.enabled": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.rulers": [100]
+}
