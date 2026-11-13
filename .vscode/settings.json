@@ -37,5 +37,5 @@
   "files.trimFinalNewlines": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
-  "editor.rulers": [100]
+  "editor.rulers": []
 }
