@@ -55,6 +55,8 @@ func getAvailableBackendConnection() (net.Conn, error) {
 		return nil, err
 	}
 
+	log.Println("assigning backend conn index: ", backendRegister.lastUsedIndex)
+
 	return backendConn, nil
 }
 
